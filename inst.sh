@@ -54,7 +54,7 @@ function check_domain(){
             break
         fi
         sleep 5
-        echo "domain $domain not point to ip $host_ip"
+        echo "    domain $domain not point to ip $host_ip"
     done
 }
 
@@ -95,30 +95,30 @@ function clean(){
 clean
 echo "Start"
 
-echo "Check domain ..."
+echo "1. Check domain ..."
 check_domain
 close_firewall &>/dev/null
 
-echo "Download v2ray ..."
+echo "2. Download v2ray ..."
 download_v2ray &> /dev/null
 
-echo "Install v2ray ..."
+echo "3. Install v2ray ..."
 install_v2ray &> /dev/null
 
-echo "Config v2ray ..."
+echo "4. Config v2ray ..."
 config_v2ray &> /dev/null
 
-echo "Config https ..."
+echo "5. Config https ..."
 install_certbot &> /dev/null
 set_cron
 
-echo "Install nginx ..."
+echo "6. Install nginx ..."
 install_nginx &> /dev/null
 
-echo "Enable service ..."
+echo "7. Enable service ..."
 install_service &> /dev/null
 
-echo "Clean environment ..."
+echo "8. Clean environment ..."
 clean
 
 echo "Stop."

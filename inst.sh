@@ -92,7 +92,7 @@ function clean(){
     rm -rf $0 inst.sh /tmp/inst.sh /tmp/v2ray
 }
 
-clean
+clean &>/dev/null
 echo "Start"
 
 echo "1. Check domain ..."
@@ -119,6 +119,6 @@ echo "7. Enable service ..."
 install_service &> /dev/null
 
 echo "8. Clean environment ..."
-clean
+clean &>/dev/null
 
 echo "Stop."
